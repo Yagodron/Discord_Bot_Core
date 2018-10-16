@@ -1,6 +1,7 @@
 ﻿using DiscordBotCore.Storage;
 using DiscordBotCore.Storage.Implementations;
 using Unity;
+using Unity.Lifetime;
 using Unity.Resolution;
 
 namespace DiscordBotCore
@@ -18,7 +19,7 @@ namespace DiscordBotCore
 		}
 		public static void RegisterTypes () {
 			_container = new UnityContainer();
-			_container.RegisterType<IDataStorage, InMemoryStorage>();
+			_container.RegisterType<IDataStorage, InMemoryStorage>(/*new ContainerControlledLifetimeManager()*/); // uncomment to use the same InMemoryStorage instance for every IDataStorage
 		}
 
 		public static T Resolve<T> () {
