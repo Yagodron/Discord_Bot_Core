@@ -19,7 +19,7 @@ namespace DiscordBotCore
 		}
 		public static void RegisterTypes () {
 			_container = new UnityContainer();
-			_container.RegisterType<IDataStorage, InMemoryStorage>(/*new ContainerControlledLifetimeManager()*/); // uncomment to use the same InMemoryStorage instance for every IDataStorage
+			_container.RegisterType<IDataStorage, InMemoryStorage>(new ContainerControlledLifetimeManager());
 		}
 
 		public static T Resolve<T> () {
