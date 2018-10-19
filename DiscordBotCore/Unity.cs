@@ -1,4 +1,5 @@
-﻿using Discord.WebSocket;
+﻿using Discord.Commands;
+using Discord.WebSocket;
 using DiscordBotCore.Discord;
 using DiscordBotCore.Storage;
 using DiscordBotCore.Storage.Implementations;
@@ -26,6 +27,7 @@ namespace DiscordBotCore
 			_container.RegisterType<DiscordSocketConfig>(new InjectionFactory(i => SocketConfig.GetDefault()));
 			_container.RegisterSingleton<DiscordSocketClient>(new InjectionConstructor(typeof(DiscordSocketConfig)));
 			_container.RegisterSingleton<Connection>();
+			_container.RegisterSingleton<CommandService>();
 		}
 
 		public static T Resolve<T> () {

@@ -1,7 +1,6 @@
 ﻿using DiscordBotCore.Discord;
 using DiscordBotCore.Discord.Entities;
 using DiscordBotCore.Storage;
-using System;
 using System.Threading.Tasks;
 
 namespace DiscordBotCore
@@ -11,7 +10,6 @@ namespace DiscordBotCore
         private static async Task Main()
         {
 			Unity.RegisterTypes();
-			Console.WriteLine("Hello, Discord!");
 
 			var storage = Unity.Resolve<IDataStorage>();
 
@@ -19,6 +17,8 @@ namespace DiscordBotCore
 			await connection.ConnectAsync(new DiscordBotConfig {
 				Token = storage.RestoreObject<string>("Config/BotToken")
 			});
+
+			await Task.Delay(-1);
 		}
     }
 }
