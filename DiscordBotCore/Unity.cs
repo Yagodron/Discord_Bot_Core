@@ -1,4 +1,5 @@
-﻿using DiscordBotCore.Storage;
+﻿using DiscordBotCore.Discord;
+using DiscordBotCore.Storage;
 using DiscordBotCore.Storage.Implementations;
 using Unity;
 using Unity.Lifetime;
@@ -20,6 +21,8 @@ namespace DiscordBotCore
 		public static void RegisterTypes () {
 			_container = new UnityContainer();
 			_container.RegisterType<IDataStorage, InMemoryStorage>(new ContainerControlledLifetimeManager());
+			_container.RegisterType<ILogger, Logger>(new ContainerControlledLifetimeManager());
+			_container.RegisterType<Connection>(new ContainerControlledLifetimeManager());
 		}
 
 		public static T Resolve<T> () {
