@@ -34,10 +34,6 @@ namespace DiscordBotCore.Discord.Entities
 				if(!result.IsSuccess) {
 					await context.Channel.SendMessageAsync(result.ToString());
 				}
-			} else if(msg.Content == "костя") {
-				await context.Channel.SendMessageAsync("krasava");
-			} else {
-				await context.Channel.SendMessageAsync("pidoor");
 			}
 		}
 	}
