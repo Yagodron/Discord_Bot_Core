@@ -14,6 +14,12 @@ namespace RandomCommands.Modules
 		public Task Say ([Remainder]string text)
 			=> ReplyAsync(text);
 
+		[Command("test"), Alias("s")]
+		[Summary("Make the bot say something")]
+		[RequireUserPermission(GuildPermission.Administrator)]
+		public Task Test ([Remainder]string text)
+			=> ReplyAsync(text);
+
 		[Command("roll")]
 		[Summary("Make the bot say something")]
 		[RequireUserPermission(GuildPermission.Administrator)]
